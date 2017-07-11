@@ -4,7 +4,8 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const CORS = require('cors');
+const cors = require('cors');
+const dotenv = require('dotenv');
 
 const index = require('./routes/index');
 const book = require('./routes/books')
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(CORS({
+app.use(cors({
   origin: process.env.CORS_ORIGIN,
   credentials: true
 }));
