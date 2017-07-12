@@ -8,7 +8,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 
 const index = require('./routes/index');
-const book = require('./routes/books')
+const book = require('./routes/books');
+const author = require('./routes/authors');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(cors({
 
 app.use('/', index);
 app.use('/books', book);
+app.use('/authors', author);
 
 
 app.use(function(req, res, next) {
