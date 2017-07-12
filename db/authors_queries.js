@@ -4,6 +4,9 @@ module.exports = {
   getAllAuthors: () => {
     return knex('author');
   },
+  getAuthor: (id) => {
+    return knex('author').where('id', id);
+  },
   createAuthor: (author) => {
     return knex('author').insert(author);
   },

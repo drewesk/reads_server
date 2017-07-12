@@ -4,6 +4,9 @@ module.exports = {
   getAllBooks: () => {
     return knex('book');
   },
+  getBook: (id) => {
+    return knex('book').where('id', id);
+  },
   createBook: (book) => {
     return knex('book').insert(book);
   },

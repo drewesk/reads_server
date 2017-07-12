@@ -9,6 +9,13 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.get('/:id', function(req, res, next) {
+  Authors.getAuthor(req.params.id)
+    .then(authors => {
+      res.json(authors[0]);
+    });
+});
+
 router.post('/new', (req, res, next) => {
   Authors.createAuthor(req.body)
     .then(authors => {

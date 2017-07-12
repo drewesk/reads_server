@@ -9,6 +9,13 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.get('/:id', function(req, res, next) {
+  Books.getBook(req.params.id)
+    .then(books => {
+      res.json(books[0]);
+    });
+});
+
 router.post('/new', (req, res, next) => {
   Books.createBook(req.body)
     .then(books => {
